@@ -1,0 +1,10 @@
+Flask-Cors==3.0.7
+Flask-Migrate==2.3.1
+Flask-Script==2.0.6
+flask-restplus==0.12.1
+Flask-SQLAlchemy==2.3.2 # It is used Everywhere
+alembic==1.0.6 # It is used for setuptools (It needs in CICD pipeline atleast)
+marshmallow==2.19.2 # Used in Models
+psycopg2-binary # It is used for PostgreSQL
+Werkzeug==0.16.0 # It is used Everywhere
+Pillow 
