@@ -1,5 +1,7 @@
 from flask import request, Response, Blueprint, jsonify
 from src.model.taskModel import TaskModel , TaskSchema
+from src.model.userModel import UserModel,UserSchema
+from src.model.loginCredentialsModel import LoginModel,LoginSchema
 from src.util.service_util import custom_response
 from sqlalchemy import create_engine
 import json
@@ -59,7 +61,9 @@ def update_task(task_id):
 @bucket_list_operations.route("/delete", methods=["POST"])
 def delete_task():
     req=request.get_json()
-    ans = TaskModel.query.filter_by(task_id=req['task_id'])
-    for i in ans:
-        print(i[0])
-    return custom_response({"response": "Task deleted successfully"}, 201)
+    engine = create_engine(os.getenv("DATABASE_URL"))
+    if(TaskModel.query.filter_by(task_id=req['task_id']).first() is not None):
+        engine.execute("delete from task_table where task_id = " + "'" + str(req["task_id"]) + "'")
+        print(req)
+        return custom_response({"response": "Task deleted successfully"}, 201)
+    return custom_response({"response":"Requested Id is not present"},404)
