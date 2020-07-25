@@ -4,7 +4,7 @@ from flask_cors import CORS
 from sqlalchemy import create_engine
 
 
-os.environ['DATABASE_URL'] = "postgres://postgres:Gyanish@4150@localhost:5432/bucket_list" 
+os.environ['DATABASE_URL'] = "postgres://postgres:gyanish4150@localhost:5432/bucket_list" 
 os.environ['FLASK_ENV'] = "development"
 
 env_name = os.getenv('FLASK_ENV')

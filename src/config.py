@@ -7,7 +7,7 @@ class Development(object):
     DEBUG = True
     TESTING = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SQLALCHEMY_DATABASE_URI = "postgres://postgres:Gyanish@4150@localhost:5432/bucket_list"
+    SQLALCHEMY_DATABASE_URI = "postgres://postgres:gyanish4150@localhost:5432/bucket_list"
 
 class Production(object):
     """

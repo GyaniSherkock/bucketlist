@@ -21,6 +21,28 @@ class LoginModel(db.Model):
     def delete(self, user_email):
         db.session.delete(user_email)
         db.session.commit()
+
+    @staticmethod
+    def getuser(user_email):
+        return UserModel.query.get(user_email)
+
+    @staticmethod
+    def getPassword(user_id):
+        return UserModel.query.get(user_id)
+
+    @staticmethod
+    def getAllUsers():
+        return UserModel.query.all()
+
+    # check if id is already present in db
+    @staticmethod
+    def checkUserId(user_email):
+        return UserModel.query.filter_by(user_email = user_email).first()
+    
+    #delete user if user_id is present in db
+    @staticmethod
+    def deleteUser(user_email):
+        return UserModel.query.filter(user_email==user_email).delete()
     
 class LoginSchema(Schema):
     user_email = fields.Str()

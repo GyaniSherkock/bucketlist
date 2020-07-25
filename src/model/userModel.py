@@ -20,7 +20,16 @@ class UserModel(db.Model):
         self.last_name = user_obj['last_name']
         self.date_of_birth = datetime.datetime.utcnow()
         self.user_password = user_obj['user_password']
-        self.mobile_number = user_obj['mobile_number'] 
+        self.mobile_number = user_obj['mobile_number']
+
+    @staticmethod
+    def checkUserId(user_email):
+        return UserModel.query.filter_by(user_email = user_email).first()
+    
+    #delete user if user_id is present in db
+    @staticmethod
+    def deleteUser(user_email):
+        return UserModel.query.filter(user_email==user_email).delete() 
 
         
     def save(self):

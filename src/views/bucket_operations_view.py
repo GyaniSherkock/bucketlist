@@ -24,6 +24,7 @@ def create_task():
     return custom_response({"response": "Task Created Successfully '~~' "}, 201)
 
 
+## API
 ## API to get all task
 @bucket_list_operations.route("/getall", methods=["GET"])
 def get_all_task():

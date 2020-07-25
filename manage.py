@@ -3,7 +3,7 @@ from flask_migrate import Migrate, MigrateCommand
 import os
 from src import db, create_app
 
-os.environ["DATABASE_URL"]="postgres://postgres:Gyanish@4150@localhost:5432/bucket_list" 
+os.environ["DATABASE_URL"]="postgres://postgres:gyanish4150@localhost:5432/bucket_list" 
 os.environ["FLASK_ENV"]="development"
 
 # os.environ["DATABASE_URL"]="postgres://postgres:ashish4150@database-1.cxt5wurz5hfp.us-east-2.rds.amazonaws.com:5432/shopping_centre_db" 
